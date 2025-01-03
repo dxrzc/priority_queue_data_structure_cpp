@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <utility>
+#include <functional>
 
 // CMP is a "template-template", std::less is the default template
 template<typename PriorityKey, typename Value, template<typename> typename CMP = std::less>
@@ -12,11 +13,14 @@ private:
 	struct Node
 	{
 		Node* next;
-		Pair pair;
+		PriorityKey key;
+		Value value;
 
 		Node() = delete;
-		Node(const Pair& pair_, Node* next_)
-			: pair(pair_), next(next_) {}
+
+		template<typename... Args>
+		Node(Node* next_, const PriorityKey& key_, Args&& ... value_args)
+			: next(next_), key(key_), value(std::forward<Args>(value_args)...) {}
 	};
 
 	CMP<PriorityKey> m_cmp;
@@ -30,11 +34,12 @@ public:
 		m_size = 0;
 	}
 
-	void push(const Pair& pair)
+	template<typename ...Args>
+	void emplace(const PriorityKey& key, Args&& ...value_args)
 	{
-		Node* new_node = new Node(pair, nullptr);
+		Node* new_node = new Node(nullptr, key, std::forward<Args>(value_args)...);
 
-		if (m_head == nullptr || !m_cmp(pair.first, m_head->pair.first))
+		if (m_head == nullptr || !m_cmp(key, m_head->key))
 		{
 			// for example, using std::greater, if the new private-key
 			// is not greater than the first one, then insert it at the beginning
@@ -49,7 +54,7 @@ public:
 			// Due we are using aux->next always, the first element's key will not be compared
 			// against the new value's key so the previous "if" is strictly needed
 			Node* aux = m_head;
-			while (aux->next != nullptr && m_cmp(pair.first, aux->next->pair.first))
+			while (aux->next != nullptr && m_cmp(key, aux->next->key))
 				aux = aux->next;
 
 			Node* next = aux->next;
@@ -57,6 +62,16 @@ public:
 			new_node->next = next;
 		}
 		++m_size;
+	}
+
+	void push(const PriorityKey& key, const Value& value)
+	{
+		emplace(key, value);
+	}
+
+	void push(const PriorityKey& key, Value&& value)
+	{
+		emplace(key, std::move(value));
 	}
 
 	void pop()
@@ -70,13 +85,14 @@ public:
 		--m_size;
 	}
 
-	const Pair& front()
+	// returns a std::pair
+	[[nodiscard]] const Pair& front()
 	{
 		// In order to prevent keys modification, an non-const overload of this
 		// function must not be implemented
 		if (empty())
 			throw std::out_of_range("Cannot return front from an empty queue");
-		return m_head->pair;
+		return std::make_pair(m_head->key, m_head->value);
 	}
 
 	[[nodiscard]] std::size_t size() const noexcept
@@ -94,7 +110,7 @@ public:
 		PriorityQueue::Node* aux = pq.m_head;
 		while (aux != nullptr)
 		{
-			os << aux->pair.first << ' ' << aux->pair.second << '\n';
+			os << aux->key << ' ' << aux->value << '\n';
 			aux = aux->next;
 		}
 		return os;
