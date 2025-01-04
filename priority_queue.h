@@ -97,10 +97,8 @@ public:
 	}
 
 	// returns a std::pair
-	[[nodiscard]] const Pair& front()
+	[[nodiscard]] Pair front()
 	{
-		// In order to prevent keys modification, an non-const overload of this
-		// function must not be implemented
 		if (empty())
 			throw std::out_of_range("Cannot return front from an empty queue");
 		return std::make_pair(m_head->key, m_head->value);
