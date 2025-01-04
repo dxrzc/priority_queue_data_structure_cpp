@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="push.test.cpp">
+      <Filter>methods</Filter>
+    </ClCompile>
+    <ClCompile Include="front.test.cpp">
+      <Filter>methods</Filter>
+    </ClCompile>
+    <ClCompile Include="empty.test.cpp">
+      <Filter>methods</Filter>
+    </ClCompile>
+    <ClCompile Include="pop.test.cpp">
+      <Filter>methods</Filter>
+    </ClCompile>
+    <ClCompile Include="bymovement.test.cpp">
+      <Filter>constructors</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="methods">
+      <UniqueIdentifier>{0c661e9c-ee33-4aa9-87d9-c62ad8c349bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="constructors">
+      <UniqueIdentifier>{53f46d36-5861-4dc4-acf2-fc04b248039e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>
