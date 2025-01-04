@@ -34,6 +34,14 @@ public:
 		m_size = 0;
 	}
 
+	PriorityQueue(PriorityQueue&& rhs) noexcept
+	{
+		m_head = rhs.m_head;
+		m_size = rhs.m_size;
+		rhs.m_head = nullptr;
+		rhs.m_size = 0;
+	}
+
 	~PriorityQueue()
 	{
 		clear();
