@@ -34,6 +34,11 @@ public:
 		m_size = 0;
 	}
 
+	~PriorityQueue()
+	{
+		clear();
+	}
+
 	template<typename ...Args>
 	void emplace(const PriorityKey& key, Args&& ...value_args)
 	{
@@ -83,6 +88,12 @@ public:
 		m_head = m_head->next;
 		delete aux;
 		--m_size;
+	}
+
+	void clear()
+	{
+		while (!empty())
+			pop();		
 	}
 
 	// returns a std::pair
