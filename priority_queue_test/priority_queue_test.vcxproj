@@ -100,6 +100,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="test_resource.helper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bymovement.test.cpp" />
@@ -113,6 +114,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="test_resource.helper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\priority_queue_cpp.vcxproj">

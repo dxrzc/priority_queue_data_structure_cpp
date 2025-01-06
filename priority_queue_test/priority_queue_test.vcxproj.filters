@@ -17,9 +17,15 @@
     <ClCompile Include="bymovement.test.cpp">
       <Filter>constructors</Filter>
     </ClCompile>
+    <ClCompile Include="test_resource.helper.cpp">
+      <Filter>helpers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="test_resource.helper.h">
+      <Filter>helpers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="methods">
@@ -27,6 +33,9 @@
     </Filter>
     <Filter Include="constructors">
       <UniqueIdentifier>{53f46d36-5861-4dc4-acf2-fc04b248039e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="helpers">
+      <UniqueIdentifier>{070686d8-018e-4f1b-8080-a61d88a798eb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
