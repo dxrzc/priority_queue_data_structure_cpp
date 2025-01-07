@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bymovement.test.cpp" />
+    <ClCompile Include="clear.test.cpp" />
     <ClCompile Include="emplace.test.cpp" />
     <ClCompile Include="empty.test.cpp" />
     <ClCompile Include="front.test.cpp" />

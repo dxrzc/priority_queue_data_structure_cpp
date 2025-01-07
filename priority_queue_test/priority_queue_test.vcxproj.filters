@@ -23,6 +23,9 @@
     <ClCompile Include="emplace.test.cpp">
       <Filter>methods</Filter>
     </ClCompile>
+    <ClCompile Include="clear.test.cpp">
+      <Filter>methods</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
