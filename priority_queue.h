@@ -27,6 +27,32 @@ private:
 	Node* m_head;
 	std::size_t m_size;
 
+	void deep_copy(const PriorityQueue& rhs)
+	{
+		Node* aux = rhs.m_head;
+		Node* current_node = nullptr;
+
+		while (aux != nullptr)
+		{
+			Node* new_node = new Node(nullptr, aux->key, aux->value);
+
+			if (current_node != nullptr)
+			{
+				// link the current node to the new one
+				current_node->next = new_node;			
+			}
+			else 
+			{
+				// the first time, link the head
+				m_head = new_node;
+			}
+
+			current_node = new_node;
+			aux = aux->next;
+		}
+		m_size = rhs.m_size;
+	}
+
 public:
 	PriorityQueue()
 	{
@@ -34,12 +60,17 @@ public:
 		m_size = 0;
 	}
 
-	PriorityQueue(PriorityQueue&& rhs) noexcept
+	PriorityQueue(PriorityQueue&& rhs) noexcept : PriorityQueue()
 	{
 		m_head = rhs.m_head;
 		m_size = rhs.m_size;
 		rhs.m_head = nullptr;
 		rhs.m_size = 0;
+	}
+
+	PriorityQueue(const PriorityQueue& rhs): PriorityQueue()
+	{
+		deep_copy(rhs);
 	}
 
 	~PriorityQueue()
@@ -101,7 +132,7 @@ public:
 	void clear()
 	{
 		while (!empty())
-			pop();		
+			pop();
 	}
 
 	// returns a std::pair
