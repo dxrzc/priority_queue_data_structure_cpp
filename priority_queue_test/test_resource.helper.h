@@ -32,7 +32,7 @@ public:
 		++instances_moved;
 	}
 
-	~test_resource() { --instances_destroyed; }
+	~test_resource() { ++instances_destroyed; }
 
 	const std::string& get_test_string() const
 	{
