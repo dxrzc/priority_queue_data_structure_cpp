@@ -26,6 +26,9 @@
     <ClCompile Include="clear.test.cpp">
       <Filter>methods</Filter>
     </ClCompile>
+    <ClCompile Include="copy.test.cpp">
+      <Filter>constructors</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
