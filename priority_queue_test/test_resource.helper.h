@@ -14,7 +14,7 @@ public:
 	static unsigned instances_moved;
 	static unsigned instances_destroyed;
 
-	test_resource(const std::string test_string_ = "test", unsigned test_number_  = 0)
+	test_resource(const std::string test_string_ = "test", unsigned test_number_ = 0)
 		: test_string(test_string_), test_number(test_number_)
 	{
 		++instances_created;
@@ -26,13 +26,23 @@ public:
 		++instances_copied;
 	}
 
-	test_resource(test_resource&& rhs) noexcept 
+	test_resource(test_resource&& rhs) noexcept
 		: test_string(std::move(rhs.test_string)), test_number(rhs.test_number)
-	{ 
+	{
 		++instances_moved;
 	}
 
 	~test_resource() { --instances_destroyed; }
+
+	const std::string& get_test_string() const
+	{
+		return test_string;
+	}
+
+	unsigned get_test_number() const
+	{
+		return test_number;
+	}
 };
 
 class constructor_operations_test : public ::testing::Test
