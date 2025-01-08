@@ -108,6 +108,17 @@ public:
 		++m_size;
 	}
 
+	void swap(PriorityQueue& rhs)
+	{
+		Node* head_aux = m_head;
+		m_head = rhs.m_head;
+		rhs.m_head = head_aux;
+
+		std::size_t size_aux = m_size;		
+		m_size = rhs.m_size;
+		rhs.m_size = size_aux;
+	}
+
 	void push(const PriorityKey& key, const Value& value)
 	{
 		emplace(key, value);
