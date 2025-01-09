@@ -38,6 +38,9 @@
     <ClCompile Include="equality-operator.test.cpp">
       <Filter>methods</Filter>
     </ClCompile>
+    <ClCompile Include="contains_value.test.cpp">
+      <Filter>methods</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
