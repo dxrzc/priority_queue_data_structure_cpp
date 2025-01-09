@@ -28,3 +28,12 @@ TEST_F(constructor_operations_test, should_copy_every_element)
 	EXPECT_EQ(test_resource::instances_created, 3);
 	EXPECT_EQ(test_resource::instances_copied, 3);
 }
+
+TEST(copy_constructor, rhs_queue_is_empty_should_not_cause_failure)
+{
+	PriorityQueue<unsigned, std::string, std::greater> empty_queue;
+	auto test_queue = empty_queue;
+
+	EXPECT_TRUE(test_queue.empty());
+	EXPECT_EQ(test_queue.size(), 0);
+}
