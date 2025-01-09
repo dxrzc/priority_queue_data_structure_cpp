@@ -39,9 +39,9 @@ private:
 			if (current_node != nullptr)
 			{
 				// link the current node to the new one
-				current_node->next = new_node;			
+				current_node->next = new_node;
 			}
-			else 
+			else
 			{
 				// the first time, link the head
 				m_head = new_node;
@@ -68,7 +68,7 @@ public:
 		rhs.m_size = 0;
 	}
 
-	PriorityQueue(const PriorityQueue& rhs): PriorityQueue()
+	PriorityQueue(const PriorityQueue& rhs) : PriorityQueue()
 	{
 		deep_copy(rhs);
 	}
@@ -124,7 +124,7 @@ public:
 		m_head = rhs.m_head;
 		rhs.m_head = head_aux;
 
-		std::size_t size_aux = m_size;		
+		std::size_t size_aux = m_size;
 		m_size = rhs.m_size;
 		rhs.m_size = size_aux;
 	}
@@ -172,6 +172,26 @@ public:
 	[[nodiscard]] bool empty() const noexcept
 	{
 		return m_head == nullptr;
+	}
+
+	bool operator==(const PriorityQueue& rhs) const noexcept
+	{
+		if (m_size != rhs.size())
+			return false;
+
+		Node* this_queue = m_head;
+		Node* rhs_queue = rhs.m_head;
+
+		while (this_queue != nullptr)
+		{
+			if (this_queue->key != rhs_queue->key || this_queue->value != rhs_queue->value)
+				return false;
+
+			this_queue = this_queue->next;
+			rhs_queue = rhs_queue->next;
+		}
+
+		return true;
 	}
 
 	friend std::ostream& operator<<(std::ostream& os, const PriorityQueue& pq)
