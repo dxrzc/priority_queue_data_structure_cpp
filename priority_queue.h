@@ -207,7 +207,22 @@ public:
 		}		
 
 		return false;
-	}	
+	}
+
+	bool contains_key(const PriorityKey& key) const
+	{
+		Node* aux = m_head;
+
+		while (aux != nullptr)
+		{
+			if (aux->key == key)
+				return true;
+			else
+				aux = aux->next;
+		}
+
+		return false;
+	}
 
 	friend std::ostream& operator<<(std::ostream& os, const PriorityQueue& pq)
 	{
