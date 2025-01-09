@@ -41,6 +41,9 @@
     <ClCompile Include="contains_value.test.cpp">
       <Filter>methods</Filter>
     </ClCompile>
+    <ClCompile Include="contains_key.test.cpp">
+      <Filter>methods</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
