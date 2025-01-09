@@ -103,6 +103,7 @@
     <ClInclude Include="test_resource.helper.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="assigment_operator.test.cpp" />
     <ClCompile Include="bymovement.test.cpp" />
     <ClCompile Include="clear.test.cpp" />
     <ClCompile Include="copy.test.cpp" />

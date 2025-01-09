@@ -78,6 +78,16 @@ public:
 		clear();
 	}
 
+	PriorityQueue& operator=(const PriorityQueue& rhs)
+	{
+		if (this != &rhs)
+		{
+			clear();
+			deep_copy(rhs);
+		}
+		return *this;
+	}
+
 	template<typename ...Args>
 	void emplace(const PriorityKey& key, Args&& ...value_args)
 	{
