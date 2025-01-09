@@ -194,6 +194,21 @@ public:
 		return true;
 	}
 
+	bool contains_value(const Value& value) const
+	{
+		Node* aux = m_head;
+
+		while (aux != nullptr)
+		{
+			if (aux->value == value)
+				return true;
+			else
+				aux = aux->next;
+		}		
+
+		return false;
+	}	
+
 	friend std::ostream& operator<<(std::ostream& os, const PriorityQueue& pq)
 	{
 		PriorityQueue::Node* aux = pq.m_head;
