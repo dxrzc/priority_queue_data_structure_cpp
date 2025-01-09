@@ -35,6 +35,9 @@
     <ClCompile Include="assigment_operator.test.cpp">
       <Filter>methods</Filter>
     </ClCompile>
+    <ClCompile Include="equality-operator.test.cpp">
+      <Filter>methods</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

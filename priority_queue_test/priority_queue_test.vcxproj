@@ -109,6 +109,7 @@
     <ClCompile Include="copy.test.cpp" />
     <ClCompile Include="emplace.test.cpp" />
     <ClCompile Include="empty.test.cpp" />
+    <ClCompile Include="equality-operator.test.cpp" />
     <ClCompile Include="front.test.cpp" />
     <ClCompile Include="pop.test.cpp" />
     <ClCompile Include="push.test.cpp" />
