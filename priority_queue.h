@@ -238,6 +238,20 @@ public:
 		return keys_vector;
 	}
 
+	std::vector<Value> get_all_values() const
+	{
+		std::vector<Value> values_vector;
+		Node* aux = m_head;
+
+		while (aux != nullptr)
+		{
+			values_vector.push_back(aux->value);
+			aux = aux->next;
+		}
+
+		return values_vector;
+	}
+
 	friend std::ostream& operator<<(std::ostream& os, const PriorityQueue& pq)
 	{
 		PriorityQueue::Node* aux = pq.m_head;
