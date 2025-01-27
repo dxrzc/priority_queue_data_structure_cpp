@@ -224,6 +224,20 @@ public:
 		return false;
 	}
 
+	std::vector<PriorityKey> get_all_keys() const
+	{
+		std::vector<PriorityKey> keys_vector;
+		Node* aux = m_head;
+
+		while (aux != nullptr)
+		{
+			keys_vector.push_back(aux->key);
+			aux = aux->next;
+		}
+
+		return keys_vector;
+	}
+
 	friend std::ostream& operator<<(std::ostream& os, const PriorityQueue& pq)
 	{
 		PriorityQueue::Node* aux = pq.m_head;
