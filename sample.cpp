@@ -4,9 +4,10 @@
 int main()
 {
 	PriorityQueue<unsigned, std::string, std::greater> pqueue;
-	pqueue.push(std::make_pair(10, "cat"));
-	pqueue.push(std::make_pair(1, "dog"));
-	pqueue.push(std::make_pair(100, "horse"));
-	pqueue.push(std::make_pair(0, "cow"));
+	pqueue.push(1, "cat");
+	pqueue.push(4, "hamster");
+	pqueue.push(2, "dog");
+	pqueue.push(5, "parrot");
+	pqueue.push(3, "rabbit");
 	std::cout << pqueue;
 }
