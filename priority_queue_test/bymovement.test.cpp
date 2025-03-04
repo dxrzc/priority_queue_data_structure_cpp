@@ -46,7 +46,7 @@ TEST_F(constructor_operations_test, movement_constructor_should_not_make_copies_
 	test_resource resource_3;
 
 	PriorityQueue<unsigned, test_resource> test_queue;	
-	// 3 instances copied
+	// 3 created by copy
 	test_queue.push(120, resource_1);
 	test_queue.push(121, resource_2);
 	test_queue.push(122, resource_3);
@@ -54,7 +54,7 @@ TEST_F(constructor_operations_test, movement_constructor_should_not_make_copies_
 	// queue "moved", pointers are reassigned
 	auto new_queue(std::move(test_queue));
 
-	EXPECT_EQ(test_resource::instances_created, 3);
+	EXPECT_EQ(test_resource::instances_created, 6);
 	EXPECT_EQ(test_resource::instances_copied, 3);
 	EXPECT_EQ(test_resource::instances_moved, 0);
 }

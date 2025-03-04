@@ -16,19 +16,20 @@ public:
 
 	test_resource(const std::string test_string_ = "test", unsigned test_number_ = 0)
 		: test_string(test_string_), test_number(test_number_)
-	{
+	{		
 		++instances_created;
 	}
 
 	test_resource(const test_resource& rhs)
 		: test_string(rhs.test_string), test_number(rhs.test_number)
 	{
+		++instances_created;
 		++instances_copied;
 	}
 
 	test_resource(test_resource&& rhs) noexcept
 		: test_string(std::move(rhs.test_string)), test_number(rhs.test_number)
-	{
+	{		
 		++instances_moved;
 	}
 

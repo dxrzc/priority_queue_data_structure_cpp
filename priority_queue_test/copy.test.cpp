@@ -22,10 +22,10 @@ TEST_F(constructor_operations_test, should_copy_every_element)
 	pqueue.emplace(12, "dog", 0);
 	pqueue.emplace(98, "horse", 0);
 
-	// 3 copied
+	// 3 created by copy
 	PriorityQueue<unsigned, test_resource, std::greater> test_queue = pqueue;
 
-	EXPECT_EQ(test_resource::instances_created, 3);
+	EXPECT_EQ(test_resource::instances_created, 6);
 	EXPECT_EQ(test_resource::instances_copied, 3);
 }
 
